@@ -143,9 +143,11 @@ public class QuizActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_CHEAT){
             Log.d(TAG, Integer.toString(requestCode));
-            int messageResId = R.string.judgment_toast;
-            Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
-                    .show();
+            if (null != data && data.getStringExtra("result") != null) {
+                int messageResId = R.string.judgment_toast;
+                Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
+                        .show();
+            }
         }
 
     }
