@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="24sp"
+    android:orientation="vertical"
+    tools:context=".CalculatorActivity">
+
+    <TextView
+        android:id="@+id/calculator_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10sp"
+        android:paddingHorizontal="2sp"
+        android:gravity="end"
+        android:maxLines="1"
+        android:minLines="1"
+        android:text="@string/key_0"
+        android:textSize="36sp"
+        android:typeface="monospace"
+        android:background="@drawable/back"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginTop="20sp"
+        android:columnCount="4"
+        android:rowCount="5">
+
+        <Button
+            android:id="@+id/sign_button"
+            android:layout_margin="8sp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:minHeight="75sp"
+            android:minWidth="75sp"
+            android:textSize="24sp"
+            android:text="@string/key_sign" />
+
+        <Button
+            android:id="@+id/divide_button"
+            android:layout_margin="8sp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:minHeight="75sp"
+            android:minWidth="75sp"
+            android:textSize="24sp"
+            android:text="@string/key_divide" />
+
+        <Button
+            android:id="@+id/multiply_button"
+            android:layout_margin="8sp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:minHeight="75sp"
+            android:minWidth="75sp"
+            android:textSize="24sp"
+            android:text="@string/key_multiply" />
+
+        <Button
+            android:id="@+id/subtract_button"
+            android:layout_margin="8sp"
+            android:layout_row="0"
+            android:layout_column="3"
+            android:minHeight="75sp"
+            android:minWidth="75sp"
+            android:textSize="24sp"
+            android:text="@string/key_subtract" />
+
+        <Button
+            android:id="@+id/seven_button"
+            android:layout_margin="8sp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:minHeight="75sp"
+            android:minWidth="75sp"
+            android:textSize="24sp"
+            android:text="@string/key_7" />
+
+        <Button
+            android:id="@+id/eight_button"
+            android:layout_margin="8sp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:minHeight="75sp"
+            android:minWidth="75sp"
+            android:textSize="24sp"
+            android:text="@string/key_8" />
+
+        <Button
+            android:id="@+id/nine_button"
+            android:layout_margin="8sp"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:minHeight="75sp"
+            android:minWidth="75sp"
+            android:textSize="24sp"
+            android:text="@string/key_9" />
+
+        <Button
+            android:id="@+id/add_button"
+            android:layout_height="167sp"
+            android:layout_row="1"
+            android:layout_column="3"
+            android:layout_margin="8sp"
+            android:layout_rowSpan="2"
+            android:minWidth="75sp"
+            android:minHeight="75sp"
+            android:text="@string/key_add"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/four_button"
+            android:layout_margin="8sp"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:minHeight="75sp"
+            android:minWidth="75sp"
+            android:textSize="24sp"
+            android:text="@string/key_4" />
+
+        <Button
+            android:id="@+id/five_button"
+            android:layout_margin="8sp"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:minHeight="75sp"
+            android:minWidth="75sp"
+            android:textSize="24sp"
+            android:text="@string/key_5" />
+
+        <Button
+            android:id="@+id/six_button"
+            android:layout_margin="8sp"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:minHeight="75sp"
+            android:minWidth="75sp"
+            android:textSize="24sp"
+            android:text="@string/key_6" />
+
+
+
+        <Button
+            android:id="@+id/one_button"
+            android:layout_margin="8sp"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:minHeight="75sp"
+            android:minWidth="75sp"
+            android:textSize="24sp"
+            android:text="@string/key_1" />
+
+        <Button
+            android:id="@+id/two_button"
+            android:layout_margin="8sp"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:minHeight="75sp"
+            android:minWidth="75sp"
+            android:textSize="24sp"
+            android:text="@string/key_2" />
+
+        <Button
+            android:id="@+id/three_button"
+            android:layout_margin="8sp"
+            android:layout_row="3"
+            android:layout_column="2"
+            android:minHeight="75sp"
+            android:minWidth="75sp"
+            android:textSize="24sp"
+            android:text="@string/key_3" />
+
+        <Button
+            android:id="@+id/equals_button"
+            android:layout_height="167sp"
+            android:layout_row="3"
+            android:layout_rowSpan="2"
+            android:layout_column="3"
+            android:layout_margin="8sp"
+            android:minWidth="75sp"
+            android:minHeight="75sp"
+            android:text="@string/key_equals"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/zero_button"
+            android:layout_width="167sp"
+            android:layout_row="4"
+            android:layout_column="0"
+            android:layout_columnSpan="2"
+            android:layout_margin="8sp"
+            android:minWidth="75sp"
+            android:minHeight="75sp"
+            android:text="@string/key_0"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/point_button"
+            android:layout_margin="8sp"
+            android:layout_row="4"
+            android:layout_column="2"
+            android:minHeight="75sp"
+            android:minWidth="75sp"
+            android:textSize="24sp"
+            android:text="@string/key_point" />
+    </GridLayout>
+</LinearLayout>
