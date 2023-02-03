@@ -3,7 +3,9 @@ package com.bignerdranch.geoquiz;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,10 +19,22 @@ public class QuizActivity extends AppCompatActivity {
     private Button mNextButton;
     private Button mCheatButton;
     private TextView mQuestionTextView;
-    private static final String TAG = "MainActivity";
+    private TextView mScoreTextView;
+    private TextView mUsesTextView;
+    private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
-    public static final String EXTRA_MESSAGE = "com.example.geoquiz.MESSAGE";
+
+    private static final String KEY_SCORE = "score";
+
+    private static final String KEY_USES = "uses";
+    public static final String EXTRA_MESSAGE = "com.bignerdranch.geoquiz.MESSAGE";
     private static final int REQUEST_CODE_CHEAT = 0;
+
+    private SharedPreferences prefs;
+    private SharedPreferences.Editor editor;
+
+    private int totalCount;
+    private int score;
 
     private Question[] mQuestionBank = new Question[] {
             new Question(R.string.question_australia, true),
@@ -37,9 +51,6 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate(Bundle) called");
-        mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
-        int question = mQuestionBank[mCurrentIndex].getmTextResId();
-        mQuestionTextView.setText(question);
 
         mTrueButton = (Button) findViewById(R.id.true_button);
         mTrueButton.setOnClickListener(new View.OnClickListener() {
@@ -80,10 +91,31 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
-        if (savedInstanceState != null) {
+        mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
+        mScoreTextView = (TextView) findViewById(R.id.score_text_view);
+        mUsesTextView = (TextView) findViewById(R.id.uses_text_view);
+
+        prefs = getPreferences(Context.MODE_PRIVATE);
+        editor = prefs.edit();
+
+
+        if (savedInstanceState == null) {
+            totalCount = prefs.getInt(KEY_USES, 0);
+            totalCount++;
+            editor.putInt(KEY_USES, totalCount);
+            editor.commit();
+        }
+        else
+        {
             mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+            score = savedInstanceState.getInt(KEY_SCORE, 0);
+            totalCount = savedInstanceState.getInt(KEY_USES, 0);
         }
 
+        mUsesTextView.setText(Integer.toString(totalCount));
+        mScoreTextView.setText(Integer.toString(score));
+        Log.d(TAG, "Total count: " + totalCount);
+        Log.d(TAG, "Score: " + score);
         updateQuestion();
     }
 
@@ -92,6 +124,8 @@ public class QuizActivity extends AppCompatActivity {
         super.onSaveInstanceState(savedInstanceState);
         Log.i(TAG, "onSaveInstanceState");
         savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
+        savedInstanceState.putInt(KEY_SCORE, score);
+        savedInstanceState.putInt(KEY_USES, totalCount);
     }
 
     private void updateQuestion() {
@@ -104,6 +138,8 @@ public class QuizActivity extends AppCompatActivity {
         int messageResId = 0;
         if (userPressedTrue == answerIsTrue) {
             messageResId = R.string.correct_toast;
+            score++;
+            mScoreTextView.setText(Integer.toString(score));
         } else {
             messageResId = R.string.incorrect_toast;
         }
