@@ -2,6 +2,8 @@ package edu.harrisburgu.cisc349.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -101,13 +103,17 @@ public class CalculatorActivity extends AppCompatActivity
     {
         if (null != redButton)
         {
-            redButton.setBackgroundColor(getResources().getColor(R.color.purple_500, null));
+            redButton.setBackgroundTintList(getColorStateList(R.color.purple_500));
         }
     }
 
     class NumberButtonClickListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
+            if (null == currentOp)
+            {
+                storedValue = 0;
+            }
             Button b = (Button) view;
             String val = b.getText().toString();
             buffer.append(val);
@@ -122,7 +128,7 @@ public class CalculatorActivity extends AppCompatActivity
         public void onClick(View view) {
             resetButtonBackground();
             redButton = (Button)view;
-            redButton.setBackgroundColor(getResources().getColor(R.color.red, null));
+            redButton.setBackgroundTintList(getColorStateList(R.color.red));
             String op = redButton.getText().toString();
             Log.d(TAG, op + " pressed.");
             resolveCurrentOp();
@@ -140,6 +146,7 @@ public class CalculatorActivity extends AppCompatActivity
         public void onClick(View view) {
             resetButtonBackground();
             resolveCurrentOp();
+            currentOp = null;
             buffer.setLength(0);
             incomingValue = 0.0;
             buffer.append(0);
