@@ -26,6 +26,42 @@
             android:layout_gravity="bottom|right"
             android:text="@string/false_button" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:layout_gravity="bottom|left"
+        android:orientation="vertical">
+       <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|left"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/score_output" />
+           <TextView
+               android:id="@+id/score_text_view"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+       </LinearLayout>
+       <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|left"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/uses_output" />
+           <TextView
+               android:id="@+id/uses_text_view"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+    </LinearLayout>
     <Button
         android:id="@+id/cheat_button"
         android:layout_width="wrap_content"
