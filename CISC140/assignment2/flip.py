@@ -21,8 +21,8 @@ target = Picture(w, h)
 
 for tCol in range(w):
     for tRow in range(h):
-        sCol = (w - 1) - tCol 
-        sRow = tRow
+        sCol = tCol 
+        sRow = (h - 1) - tRow 
         target.set(tCol, tRow, source.get(sCol, sRow))
 
 stddraw.setCanvasSize(w, h)
