@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentManager;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
+    String[] users = {"Alice", "Bob", "Cindy"};
+    String[] passwords =  {"alice123", "bob123", "cindy123"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

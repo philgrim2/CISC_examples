@@ -1,4 +1,4 @@
-package edu.harrisburg.cis349.testvolley;
+package edu.harrisburg.cis349.fragmentlist;
 
 import com.google.gson.annotations.SerializedName;
 
