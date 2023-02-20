@@ -1,44 +1,57 @@
 package edu.harrisburg.cis349.fragmentlist;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.util.ArrayList;
-
-public class MainActivity extends AppCompatActivity {
-
-    private static final String TAG = "MainActivity";
-    ArrayList<Movie> movies = new ArrayList<>();
+public class MovieListFragment extends Fragment {
+    private static final String TAG = "MovieListFragment";
     private Gson gson;
     private RequestQueue queue;
-    private FragmentManager fm;
+
+    private final MovieLibrary library = MovieLibrary.getInstance();
+
+    private RecyclerView movieRecyclerView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_movie_list, container, false);
+
+        movieRecyclerView = (RecyclerView) view
+                .findViewById(R.id.movie_recycler_view);
+        movieRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        return view;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        fm = getSupportFragmentManager();
-
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gson = gsonBuilder.create();
         // Instantiate the RequestQueue.
-        queue = Volley.newRequestQueue(this);
+        queue = Volley.newRequestQueue(this.getContext());
         queue.start();
 
-
+        updateList();
     }
 
     private void updateList()
@@ -55,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                                                 gson.fromJson(response.getJSONObject(i)
                                                                 .toString(),
                                                         Movie.class);
-                                        movies.add(movie);
+                                        library.add(movie);
 
 
 
@@ -64,12 +77,7 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 }
                             }
-                        }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.d("JSONArray Error", "Error:" + error);
-                    }
-                });
+                        }, error -> Log.d(TAG, "Error:" + error));
         queue.add(jsonArrayRequest);
     }
 }
