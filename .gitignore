@@ -24,3 +24,5 @@ hs_err_pid*
 
 # Eclipse 
 .project
+
+__pycache__/
