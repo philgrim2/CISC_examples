@@ -1,0 +1,119 @@
+atomic_number,name,symbol,group,period,element_category,atomic_weight,phase
+1,Hydrogen,H,1,1,diatomic nonmetal,1.008,gas
+2,Helium,He,18,1,noble gas,4.0026022,gas
+3,Lithium,Li,1,2,alkali metal,6.94,solid
+4,Beryllium,Be,2,2,alkaline earth metal,9.01218315,solid
+5,Boron,B,13,2,metalloid,10.81,solid
+6,Carbon,C,14,2,polyatomic nonmetal,12.011,solid
+7,Nitrogen,N,15,2,diatomic nonmetal,14.007,gas
+8,Oxygen,O,16,2,diatomic nonmetal,15.999,gas
+9,Fluorine,F,17,2,diatomic nonmetal,18.99840316,gas
+10,Neon,Ne,18,2,noble gas,20.17976,gas
+11,Sodium,Na,1,3,alkali metal,22.98976928,solid
+12,Magnesium,Mg,2,3,alkaline earth metal,24.305,solid
+13,Aluminum,Al,13,3,post-transition metal,26.98153857,solid
+14,Silicon,Si,14,3,metalloid,28.085,solid
+15,Phosphorus,P,15,3,polyatomic nonmetal,30.973762,solid
+16,Sulfur,S,16,3,polyatomic nonmetal,32.06,solid
+17,Chlorine,Cl,17,3,diatomic nonmetal,35.45,gas
+18,Argon,Ar,18,3,noble gas,39.9481,gas
+19,Potassium,K,1,4,alkali metal,39.09831,solid
+20,Calcium,Ca,2,4,alkaline earth metal,40.0784,solid
+21,Scandium,Sc,3,4,transition metal,44.9559085,solid
+22,Titanium,Ti,4,4,transition metal,47.8671,solid
+23,Vanadium,V,5,4,transition metal,50.94151,solid
+24,Chromium,Cr,6,4,transition metal,51.99616,solid
+25,Manganese,Mn,7,4,transition metal,54.9380443,solid
+26,Iron,Fe,8,4,transition metal,55.8452,solid
+27,Cobalt,Co,9,4,transition metal,58.9331944,solid
+28,Nickel,Ni,10,4,transition metal,58.69344,solid
+29,Copper,Cu,11,4,transition metal,63.5463,solid
+30,Zinc,Zn,12,4,transition metal,65.382,solid
+31,Gallium,Ga,13,4,post-transition metal,69.7231,solid
+32,Germanium,Ge,14,4,metalloid,72.6308,solid
+33,Arsenic,As,15,4,metalloid,74.9215956,solid
+34,Selenium,Se,16,4,polyatomic nonmetal,78.9718,solid
+35,Bromine,Br,17,4,diatomic nonmetal,79.904,liquid
+36,Krypton,Kr,18,4,noble gas,83.7982,gas
+37,Rubidium,Rb,1,5,alkali metal,85.46783,solid
+38,Strontium,Sr,2,5,alkaline earth metal,87.621,solid
+39,Yttrium,Y,3,5,transition metal,88.905842,solid
+40,Zirconium,Zr,4,5,transition metal,91.2242,solid
+41,Niobium,Nb,5,5,transition metal,92.906372,solid
+42,Molybdenum,Mo,6,5,transition metal,95.951,solid
+43,Technetium,Tc,7,5,transition metal,98,solid
+44,Ruthenium,Ru,8,5,transition metal,101.072,
+45,Rhodium,Rh,9,5,transition metal,102.905502,solid
+46,Palladium,Pd,10,5,transition metal,106.421,solid
+47,Silver,Ag,11,5,transition metal,107.86822,solid
+48,Cadmium,Cd,12,5,transition metal,112.4144,solid
+49,Indium,In,13,5,post-transition metal,114.8181,solid
+50,Tin,Sn,14,5,post-transition metal,118.7107,solid
+51,Antimony,Sb,15,5,metalloid,121.7601,solid
+52,Tellurium,Te,16,5,metalloid,127.603,solid
+53,Iodine,I,17,5,diatomic nonmetal,126.904473,solid
+54,Xenon,Xe,18,5,noble gas,131.2936,gas
+55,Cesium,Cs,1,6,alkali metal,132.905452,solid
+56,Barium,Ba,2,6,alkaline earth metals,137.3277,solid
+57,Lanthanum,La,3,6,lanthanide,138.905477,solid
+58,Cerium,Ce,n/a,6,lanthanide,140.1161,solid
+59,Praseodymium,Pr,n/a,6,lanthanide,140.907662,solid
+60,Neodymium,Nd,n/a,6,lanthanide,144.2423,solid
+61,Promethium,Pm,n/a,6,lanthanide,145,solid
+62,Samarium,Sm,n/a,6,lanthanide,150.362,solid
+63,Europium,Eu,n/a,6,lanthanide,151.9641,solid
+64,Gadolinium,Gd,n/a,6,lanthanide,157.253,solid
+65,Terbium,Tb,n/a,6,lanthanide,158.925352,solid
+66,Dysprosium,Dy,n/a,6,lanthanide,162.5001,solid
+67,Holmium,Ho,n/a,6,lanthanide,164.930332,solid
+68,Erbium,Er,n/a,6,lanthanide,167.2593,solid
+69,Thulium,Tm,n/a,6,lanthanide,168.934222,solid
+70,Ytterbium,Yb,n/a,6,lanthanide,173.0451,solid
+71,Lutetium,Lu,n/a,6,lanthanide,174.96681,solid
+72,Hafnium,Hf,4,6,transition metal,178.492,solid
+73,Tantalum,Ta,5,6,transition metal,180.947882,solid
+74,Tungsten,W,6,6,transition metal,183.841,solid
+75,Rhenium,Re,7,6,transition metal,186.2071,solid
+76,Osmium,Os,8,6,transition metal,190.233,solid
+77,Iridium,Ir,9,6,transition metal,192.2173,solid
+78,Platinum,Pt,10,6,transition metal,195.0849,solid
+79,Gold,Au,11,6,transition metal,196.9665695,solid
+80,Mercury,Hg,12,6,transition metal,200.5923,liquid
+81,Thallium,Tl,13,6,post-transition metal,204.38,solid
+82,Lead,Pb,14,6,post-transition metal,207.21,solid
+83,Bismuth,Bi,15,6,post-transition metal,208.980401,solid
+84,Polonium,Po,16,6,post-transition metal,209,solid
+85,Astatine,At,17,6,metalloid,210,solid
+86,Radon,Rn,18,6,noble gas,222,gas
+87,Francium,Fr,1,7,alkali metal,223,solid presumably
+88,Radium,Ra,2,7,alkaline earth metal,226,solid
+89,Actinium,Ac,3,7,actinide,227,solid
+90,Thorium,Th,n/a,7,actinide,232.03774,solid
+91,Protactinium,Pa,n/a,7,actinide,231.035882,solid
+92,Uranium,U,n/a,7,actinide,238.028913,solid
+93,Neptunium,Np,n/a,7,actinide,237,solid
+94,Plutonium,Pu,n/a,7,actinide,244,solid
+95,Americium,Am,n/a,7,actinide,243,solid
+96,Curium,Cm,n/a,7,actinide,247,solid
+97,Berkelium,Bk,n/a,7,actinide,247,solid
+98,Californium,Cf,n/a,7,actinide,251,solid
+99,Einsteinium,Es,n/a,7,actinide,252,solid
+100,Fermium,Fm,n/a,7,actinide,257,solid (predicted)
+101,Mendelevium,Md,n/a,7,actinide,258,solid (predicted)
+102,Nobelium,No,n/a,7,actinide,259,solid (predicted)
+103,Lawrencium,Lr,n/a,7,actinide,266,solid (predicted)
+104,Rutherfordium,Rf,4,7,transition metal,267,solid (predicted)
+105,Dubnium,Db,5,7,transition metal,268,solid (predicted)
+106,Seaborgium,Sg,6,7,transition metal,269,solid (predicted)
+107,Bohrium,Bh,7,7,transition metal,270,solid (predicted)
+108,Hassium,Hs,8,7,transition metal,269,solid (predicted)
+109,Meitnerium,Mt,9,7,unknown,278,solid (predicted)
+110,Darmstadtium,Ds,10,7,unknown,281,solid (predicted)
+111,Roentgenium,Rg,11,7,unknown,282,solid (predicted)
+112,Copernicium,Cn,12,7,unknown,285,gas (predicted)
+113,Nihonium,Nh,13,7,unknown,286,solid (predicted)
+114,Flerovium,Fl,14,7,unknown,289,solid (predicted)
+115,Moscovium,Mc,15,7,unknown,289,solid (predicted)
+116,Livermorium,Lv,16,7,unknown,293,solid (predicted)
+117,Tennessine,Ts,17,7,unknown,294,solid (predicted)
+118,Oganesson,Og,18,7,unknown,294,solid (predicted)
