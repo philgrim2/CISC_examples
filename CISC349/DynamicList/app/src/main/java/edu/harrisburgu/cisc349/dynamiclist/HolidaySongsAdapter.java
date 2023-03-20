@@ -1,12 +1,14 @@
 package edu.harrisburgu.cisc349.dynamiclist;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.icu.util.TimeUnit;
 import android.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,11 +19,14 @@ import com.android.volley.toolbox.NetworkImageView;
 
 import java.util.ArrayList;
 
-public class HolidaySongsAdapter extends BaseAdapter {
+public class HolidaySongsAdapter extends BaseAdapter implements AdapterView.OnItemClickListener {
     private static final int IMAGE_SIZE = 256;
     private Context context;
     private ArrayList<HolidaySongs> holidaySongs;
     private ImageLoader imageLoader;
+
+    public static final String EXTRA_SELECTED_ITEM =
+            "edu.harrisburgu.cisc349.dynamiclist.selecteditem";
 
     public HolidaySongsAdapter(Context context, ArrayList<HolidaySongs> holidaySongs, RequestQueue queue)
     {
@@ -82,12 +87,31 @@ public class HolidaySongsAdapter extends BaseAdapter {
                 (album.getDurationMs()/1000) % 60));
 
         NetworkImageView image = (NetworkImageView) view.findViewById(R.id.albumImageView);
-        //image.setMaxHeight(IMAGE_SIZE);
-        //image.setMaxWidth(IMAGE_SIZE);
-        //image.setScaleType(ImageView.ScaleType.CENTER);
 
         image.setImageUrl(album.getImage(), imageLoader);
 
         return view;
+    }
+
+    public void populateView(View view, int index)
+    {
+        HolidaySongs album = holidaySongs.get(index);
+
+        TextView tv = view.findViewById(R.id.albumDisplayName);
+        tv.setText(album.getName());
+        tv = view.findViewById(R.id.artistDisplayName);
+        tv.setText(album.getArtist());
+
+        NetworkImageView image = (NetworkImageView) view.findViewById(R.id.albumDisplayImageView);
+        image.setImageUrl(album.getImage(), imageLoader);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
+    {
+        Intent intent = AlbumActivity.newIntent(adapterView.getContext(),
+                this);
+        intent.putExtra(EXTRA_SELECTED_ITEM, i);
+        adapterView.getContext().startActivity(intent);
     }
 }
