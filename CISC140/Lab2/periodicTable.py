@@ -67,7 +67,58 @@ class PeriodicTable:
                     return v
 
         return None
-            
+    
+    def run(self):
+        """
+        Presents a terminal interface that allows the user to enter
+        a chemical formula and receive the molecular weight of that formula.
+        """
+        stdio.writeln("Formula: ")
+        running = True
+        while running and not stdio.isEmpty():            
+            formula = stdio.readString()
+            if formula.lower() in ['quit','exit','stop']:
+                running = False
+                
+            try:    
+                weight = self._parse(formula)
+                stdio.writef("Molecular weight: %.6f\n", weight)
+            except Exception as e:
+                stdio.writeln(str(e))
+            stdio.writeln("Formula: ")
+    def _parse(self, formula):
+        """
+        Parses a chemical formula, looks up the weight of each element,
+        and totals the molecular weight.
+        """
+        weight = 0.0
+        cur = 0.0
+        i = 0
+        while i < len(formula):
+            symbol = formula[i]
+            if symbol.isdigit():
+                while i + 1 < len(formula) and formula[i+1].isdigit():
+                    i += 1
+                    symbol += formula[i]
+                mult = int(symbol)
+                cur *= mult
+                weight += cur
+                cur = 0.0
+            elif symbol.isupper():
+                weight += cur
+                cur = 0.0
+                if i + 1 < len(formula) and formula[i+1].islower():
+                    i += 1
+                    symbol += formula[i]
+                elem = self[symbol]
+                if elem == None:
+                    raise ValueError(f'No element for symbol {symbol}')
+                cur = elem.atomicWeight()
+            else:
+                raise ValueError(f'Invalid input {symbol}')
+            i += 1
+        weight += cur
+        return weight
     
 def _test():
     # Make a periodic table from the default file
@@ -89,6 +140,7 @@ def _main():
     filename = sys.argv[1]
     
     pertab = PeriodicTable(filename)
+    pertab.run()
 
 if __name__ == '__main__':
     if '--test' in sys.argv:
