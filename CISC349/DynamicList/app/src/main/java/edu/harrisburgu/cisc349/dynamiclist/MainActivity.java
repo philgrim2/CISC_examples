@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 HolidaySongsAdapter adapter = new HolidaySongsAdapter(list.getContext(), results, queue);
                                 list.setAdapter(adapter);
+                                list.setOnItemClickListener(adapter);
 
                             }
                         }, new Response.ErrorListener() {
