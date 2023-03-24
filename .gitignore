@@ -26,3 +26,5 @@ hs_err_pid*
 .project
 
 __pycache__/
+
+.ipynb_checkpoints/
