@@ -56,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
                                         e.printStackTrace();
                                     }
                                 }
-                                //HolidaySongsAdapter adapter = new HolidaySongsAdapter(list.getContext(), results, queue);
-                                //list.setAdapter(adapter);
+                                CustomerListAdapter adapter = new CustomerListAdapter(list.getContext(), customerList);
+                                list.setAdapter(adapter);
 
                             }
                         }, new Response.ErrorListener() {
