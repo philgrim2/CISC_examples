@@ -15,7 +15,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 
@@ -23,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
     ImageView imageView;
     BitmapDrawable drawable;
+    RequestQueue queue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
         Button capture = findViewById(R.id.camera_button);
         imageView = findViewById(R.id.cameraImageView);
+
+        queue = Volley.newRequestQueue(this);
+        queue.start();
+
+
 
         capture.setOnClickListener(new View.OnClickListener() {
 
@@ -41,6 +56,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button list = findViewById(R.id.list_button);
+        list.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Log.d("CameraTest","in list Click");
+                Intent i = new Intent(MainActivity.this, ViewActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
     @Override
@@ -53,10 +78,10 @@ public class MainActivity extends AppCompatActivity {
                 Bitmap imageBitmap = (Bitmap) extras.get("data");
                 imageView.setImageBitmap(imageBitmap);
 
-                //drawable = (BitmapDrawable) imageView.getDrawable();
-                //final Bitmap bitmap = drawable.getBitmap();
+                drawable = (BitmapDrawable) imageView.getDrawable();
+                final Bitmap bitmap = drawable.getBitmap();
 
-                //uploadToServer(encodeToBase64(bitmap,Bitmap.CompressFormat.PNG,100));
+                uploadToServer(encodeToBase64(bitmap,Bitmap.CompressFormat.PNG,100));
 
             } else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, "You cancelled the operation", Toast.LENGTH_SHORT).show();
@@ -68,5 +93,33 @@ public class MainActivity extends AppCompatActivity {
         ByteArrayOutputStream byteArrayOS = new ByteArrayOutputStream();
         image.compress(compressFormat, quality, byteArrayOS);
         return Base64.encodeToString(byteArrayOS.toByteArray(), Base64.DEFAULT);
+    }
+
+    private void uploadToServer(final String image) {
+
+
+        JSONObject json = new JSONObject();
+        try {
+            json.put("store", "amz");
+            json.put("image", image);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        String url = "http://192.168.0.29:5000/image";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, json,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("Hello", "Response: " + response.toString());
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("Hello", error.getMessage());
+            }
+        });
+
+        queue.add(jsonObjectRequest);
     }
 }

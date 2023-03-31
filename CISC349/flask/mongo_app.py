@@ -7,7 +7,7 @@ import certifi
 
 app = Flask(__name__)
 
-client = MongoClient('mongodb+srv://pgrim:<password>@cisc349.aa5oxv8.mongodb.net/?retryWrites=true&w=majority',
+client = MongoClient('mongodb+srv://pgrim:8eO8G4yf4aRVcsl6@cisc349.aa5oxv8.mongodb.net/?retryWrites=true&w=majority',
                      tlsCAFile=certifi.where())
 db = client["CISC349"]
  
@@ -40,7 +40,20 @@ def all():
     # we need to convert _id to str.
     return json.dumps(customers, default=str)
 
+@app.route("/image", methods=["POST"])
+def image_save():
+    collection = db["images"]
+    content = request.get_json()
+    _id = collection.insert_one(content) 
+    return json.dumps({'id' : str(_id.inserted_id)})
 
+@app.route('/images', methods=['GET'])
+def image_list():
+    collection = db["images"] 
+    images = list(collection.find())
+    # we need to convert _id to str.
+    print(f"Got {len(images)} images.")
+    return json.dumps(images, default=str)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
