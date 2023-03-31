@@ -3,10 +3,12 @@ from pymongo import MongoClient
 from flask import Flask
 from flask import request
 from flask.json import jsonify
+import certifi
 
 app = Flask(__name__)
 
-client = MongoClient('mongodb+srv://pgrim:<password>@cisc349.aa5oxv8.mongodb.net/?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://pgrim:<password>@cisc349.aa5oxv8.mongodb.net/?retryWrites=true&w=majority',
+                     tlsCAFile=certifi.where())
 db = client["CISC349"]
  
 
@@ -23,14 +25,15 @@ def add():
     request_data = request.get_json()
     name = request_data['name']
     address = request_data['address']
-    print(f'Name: {name}, Address: {address}')
-    data = { "name": name, "address": address }
+    phone = request_data['phone']
+    print(f'Name: {name}, Address: {address}, Phone: {phone}')
+    data = { "name": name, "address": address, "phone": phone }
     _id = collection.insert_one(data) 
     return json.dumps({'id' : str(_id.inserted_id)})
 
 # Select All users
 
-@app.route('/all', methods=['POST'])
+@app.route('/all', methods=['GET'])
 def all():
     collection = db["customers"] 
     customers = list(collection.find())
@@ -40,12 +43,9 @@ def all():
 
 
 if __name__ == "__main__":
-    app.run(port=5000)
+    app.run(host="0.0.0.0", port=5000)
     
     
-#
-# curl --header 'Content-Type: application/json' --data "{ \"name\": \"Phil Grim\", \"address\": \"214 Pine Woods Rd, Wellsville PA 17365\"}" http://localhost:5000/add
-#
-#curl -X POST localhost:5000/add -H "Content-Type: application/json" -d "{ \"name\"": \"Phil Grim\", \"address\": \"214 Pine Woods Rd, Wellsville PA 17365\"}"
-#
-#curl -X POST -d '{ "name": "Phil Grim", "address": "214 Pine Woods Rd, Wellsville PA 17365"}' -H 'Content-Type: application/json' localhost:5000/add
+
+#curl --header 'Content-Type: application/json' --data "{ \"name\": \"Phil Grim\", \"address\": \"214 Pine Woods Rd, Wellsville PA 17365\", \"phone\":\"(717) 901-5100\"}" http://10.1.120.32:5000/add
+

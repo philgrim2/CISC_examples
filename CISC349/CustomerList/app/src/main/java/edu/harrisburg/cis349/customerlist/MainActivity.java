@@ -2,8 +2,11 @@ package edu.harrisburg.cis349.customerlist;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.android.volley.Request;
@@ -20,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    protected static final String url = "http://10.1.120.32:5000/all";
+    protected static final String url = "http://10.1.120.67:5000/all";
 
     RequestQueue queue;
 
@@ -68,5 +71,16 @@ public class MainActivity extends AppCompatActivity {
                 });
         // Add the request to the RequestQueue.
         queue.add(jsonArrayRequest);
+
+        Button addButton = (Button)findViewById(R.id.add_button);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start CheatActivity
+                Intent i = AddCustomerActivity.newIntent(MainActivity.this,
+                        queue);
+                startActivity(i);
+            }
+        });
     }
 }
