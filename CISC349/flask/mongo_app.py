@@ -7,7 +7,7 @@ import certifi
 
 app = Flask(__name__)
 
-client = MongoClient('mongodb+srv://pgrim:8eO8G4yf4aRVcsl6@cisc349.aa5oxv8.mongodb.net/?retryWrites=true&w=majority',
+client = MongoClient('mongodb+srv://pgrim:<password>@cisc349.aa5oxv8.mongodb.net/?retryWrites=true&w=majority',
                      tlsCAFile=certifi.where())
 db = client["CISC349"]
  
