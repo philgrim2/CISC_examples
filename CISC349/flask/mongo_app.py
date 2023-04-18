@@ -27,9 +27,26 @@ def add():
     address = request_data['address']
     phone = request_data['phone']
     print(f'Name: {name}, Address: {address}, Phone: {phone}')
-    data = { "name": name, "address": address, "phone": phone }
-    _id = collection.insert_one(data) 
-    return json.dumps({'id' : str(_id.inserted_id)})
+    _id = collection.insert_one(request_data) 
+    return json.dumps({'_id' : str(_id.inserted_id)})
+
+# Update user
+@app.route('/update', methods=['POST'])
+def update():
+    collection = db["customers"]
+    request_data = request.get_json()
+    id = request_data['_id']
+    name = request_data['name']
+    address = request_data['address']
+    phone = request_data['phone']
+    comments = request_data['comments']
+    print(f'ID: {id}, Name: {name}, Address: {address}, Phone: {phone}, Comments: {comments}')
+    filter = {'_id' : id}
+    newvalues = { "$push": {'comments':comments}}
+    
+    _id = collection.update_one(filter, newvalues) 
+    return json.dumps({'_id' : id})
+
 
 # Select All users
 

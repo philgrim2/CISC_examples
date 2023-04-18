@@ -5,43 +5,46 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/name_view"
         android:layout_height="wrap_content"
-        android:text="@string/add_customer"
-        android:textSize="22sp"
-        android:layout_marginVertical="20sp"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
         />
 
-    <EditText
-        android:id="@+id/name_input"
+    <TextView
+        android:id="@+id/address_view"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:inputType="text"
-        android:hint="@string/name_prompt"
         />
 
+    <TextView
+        android:id="@+id/phone_view"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/comment_label"
+        />
+    <ListView
+        android:id="@+id/commentListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
     <EditText
-        android:id="@+id/address_input"
+        android:id="@+id/comment_input"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:inputType="text"
-        android:hint="@string/address_prompt"
+        android:hint="@string/comment_prompt"
         />
-
-    <EditText
-        android:id="@+id/phone_input"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:inputType="text"
-        android:hint="@string/phone_prompt"
-        />
-
     <Button
-        android:id="@+id/save_button"
+        android:id="@+id/add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/save"
+        android:text="@string/add_comment"
         android:layout_gravity="center"
         />
 
