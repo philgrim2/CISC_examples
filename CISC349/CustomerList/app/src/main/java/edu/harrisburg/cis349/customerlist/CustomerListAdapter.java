@@ -1,9 +1,11 @@
 package edu.harrisburg.cis349.customerlist;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
@@ -11,15 +13,19 @@ import com.android.volley.RequestQueue;
 
 import java.util.List;
 
-public class CustomerListAdapter extends BaseAdapter {
-
+public class CustomerListAdapter extends BaseAdapter implements AdapterView.OnItemClickListener {
+    public static final String EXTRA_SELECTED_ITEM =
+            "edu.harrisburgu.cisc349.customerlist.selecteditem";
     protected Context context;
     protected List<Customer> customerList;
 
-    public CustomerListAdapter(Context context, List<Customer> list)
+    protected RequestQueue queue;
+
+    public CustomerListAdapter(Context context, List<Customer> list, RequestQueue queue)
     {
         this.context = context;
         this.customerList = list;
+        this.queue = queue;
     }
 
     @Override
@@ -54,5 +60,13 @@ public class CustomerListAdapter extends BaseAdapter {
         address.setText(customerList.get(i).getAddress());
         phone.setText(customerList.get(i).getPhone());
         return view;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Intent intent = DisplayCustomerActivity.newIntent(adapterView.getContext(),
+                this, queue);
+        intent.putExtra(EXTRA_SELECTED_ITEM, i);
+        adapterView.getContext().startActivity(intent);
     }
 }

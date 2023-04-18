@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    protected static final String url = "http://10.1.120.67:5000/all";
+    protected static final String url = "http://192.168.0.18:5000/all";
 
     RequestQueue queue;
 
@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         queue = Volley.newRequestQueue(this);
         queue.start();
 
-
         JsonArrayRequest jsonArrayRequest =
                 new JsonArrayRequest(Request.Method.GET,
                         url, null,
@@ -53,14 +52,15 @@ public class MainActivity extends AppCompatActivity {
                             public void onResponse(JSONArray response) {
                                 for (int i = 0; i < response.length(); i++) {
                                     try {
-                                        Customer album = new Customer(response.getJSONObject(i));
-                                        customerList.add(album);
+                                        Customer customer = new Customer(response.getJSONObject(i));
+                                        customerList.add(customer);
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
                                 }
-                                CustomerListAdapter adapter = new CustomerListAdapter(list.getContext(), customerList);
+                                CustomerListAdapter adapter = new CustomerListAdapter(list.getContext(), customerList, queue);
                                 list.setAdapter(adapter);
+                                list.setOnItemClickListener(adapter);
 
                             }
                         }, new Response.ErrorListener() {
@@ -76,9 +76,8 @@ public class MainActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start CheatActivity
-                Intent i = AddCustomerActivity.newIntent(MainActivity.this,
-                        queue);
+                // Start AddCustomerActivity
+                Intent i = AddCustomerActivity.newIntent(MainActivity.this, queue);
                 startActivity(i);
             }
         });
