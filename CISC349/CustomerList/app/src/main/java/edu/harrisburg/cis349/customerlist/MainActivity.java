@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    protected static final String url = "http://192.168.0.18:5000/all";
+    protected static final String url = "http://10.1.120.56:5000/all";
 
     RequestQueue queue;
 

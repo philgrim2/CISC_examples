@@ -16,9 +16,6 @@ from sketch import Sketch
 # measures between all pairs of documents. d is the dimension of the
 # profiles.
 
-k = int(sys.argv[1])
-d = int(sys.argv[2])
-
 filenames = stdio.readAllStrings()
 sketches = stdarray.create1D(len(filenames))
 

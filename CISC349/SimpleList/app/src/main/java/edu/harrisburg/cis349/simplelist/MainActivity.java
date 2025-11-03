@@ -64,5 +64,15 @@ public class MainActivity extends AppCompatActivity {
         // Attach the adapter to a ListView
         ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                User value=  (User) adapter.getItem(position);
+                Log.d(TAG, "Selected " + value.getName());
+                Toast.makeText(getApplicationContext(),value.getName(),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

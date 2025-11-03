@@ -19,11 +19,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class AddCustomerActivity extends AppCompatActivity {
-    protected static final String url = "http://10.1.120.67:5000/add";
+    protected static final String url = "http://10.1.120.56:5000/add";
     protected static RequestQueue queue;
     protected static Context context;
 
@@ -53,11 +56,13 @@ public class AddCustomerActivity extends AppCompatActivity {
                 String name = nameField.getText().toString();
                 String address = addressField.getText().toString();
                 String phone = phoneField.getText().toString();
+                ArrayList<String> comments = new ArrayList<String>();
 
                 String data = String.format("{ \"name\":\"%s\", \"address\":\"%s\", \"phone\":\"%s\" }", name, address, phone);
                 JSONObject jobj = null;
                 try {
                     jobj = new JSONObject(data);
+                    jobj.put("commentList", new JSONArray(comments));
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }

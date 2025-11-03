@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        String url = "http://192.168.0.29:5000/image";
+        String url = "http://10.1.120.56:5000/image";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, json,
                 new Response.Listener<JSONObject>() {
                     @Override
