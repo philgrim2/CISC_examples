@@ -1,5 +1,9 @@
 """
 pathfinder.py, by Phil Grim
+    Implements an animated demonstration of pathfinding with classical
+    graph search algorithms.
+    
+    All classes are in one file for ease of distribution.
 
 
 
@@ -8,10 +12,12 @@ by Sedgewick, Wayne, and Dondero, which can be found on the book's website at
 https://introcs.cs.princeton.edu/python/code/introcs-python.zip
 
 Outstanding issues:
-  
-  
+    Depth-first search gets stuck in the corner
+    Breadth-first search never finishes
+   
 Possible improvements:
-  
+    Add entities from interface
+    Reset and restart sim
   
 Possible practical uses:
   As a lab assignment/take-home exam for students to implement. 

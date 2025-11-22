@@ -4,10 +4,15 @@ from flask import Flask
 from flask import request
 from flask.json import jsonify
 import certifi
+import urllib
 
 app = Flask(__name__)
 
-client = MongoClient('mongodb+srv://pgrim:<password>@cisc349.aa5oxv8.mongodb.net/?retryWrites=true&w=majority',
+
+#username = urllib.parse.quote_plus('pgrim')
+#password = urllib.parse.quote_plus('p6rsNbiraf%iZuW')
+
+client = MongoClient('mongodb+srv://dbuser:12pass34word56@cisc349.aa5oxv8.mongodb.net/?retryWrites=true&w=majority&appName=CISC349',
                      tlsCAFile=certifi.where())
 db = client["CISC349"]
  

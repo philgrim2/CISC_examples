@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.start();
 
-        //RequestQueue queue = Volley.newRequestQueue(this);
         JsonArrayRequest jsonArrayRequest =
                 new JsonArrayRequest(Request.Method.GET,
                         "https://gist.githubusercontent.com/alanponce/d8a5e47b4328b5560fb610c5731de2bd/raw/b9f2a2b20d7d71f0e9c31adf40c7c83308809ac0/movies.json", null,
@@ -53,6 +52,25 @@ public class MainActivity extends AppCompatActivity {
                             public void onResponse(JSONArray response) {
                                 for (int i = 0; i < response.length(); i++) {
                                     try {
+                                        /*
+                                        JSONObject jsonObjectFromArray =
+                                                response.getJSONObject(i);
+
+                                        JSONArray genre = jsonObjectFromArray
+                                                .getJSONArray("genre");
+                                        ArrayList<String> genre_list = new ArrayList<>();
+                                        for (int j = 0; j < genre.length(); j++) {
+                                            genre_list.add(genre.get(j).toString());
+                                        }
+                                        Movie movie = new Movie(
+                                                jsonObjectFromArray.getString("title"),
+                                                jsonObjectFromArray.getString("image"),
+                                                jsonObjectFromArray.getDouble("rating"),
+                                                jsonObjectFromArray.getInt("releaseYear"),
+                                                genre_list
+                                        );
+                                        */
+
                                         Movie movie =
                                                 gson.fromJson(response.getJSONObject(i)
                                                                 .toString(),

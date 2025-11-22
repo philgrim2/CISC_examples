@@ -25,8 +25,8 @@ public class UserAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
-        return position;
+    public Object getItem(int position){
+        return arrayList.get(position);
     }
 
     @Override

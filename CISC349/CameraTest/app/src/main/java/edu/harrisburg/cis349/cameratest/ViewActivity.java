@@ -39,7 +39,7 @@ public class ViewActivity extends AppCompatActivity {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.start();
-        String url = "http://192.168.0.29:5000/images";
+        String url = "http://10.1.120.56:5000/images";
         JsonArrayRequest jsonArrayRequest =
                 new JsonArrayRequest(Request.Method.GET,
                         url, null,

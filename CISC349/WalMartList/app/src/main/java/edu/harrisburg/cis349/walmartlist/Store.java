@@ -10,11 +10,10 @@ public class Store {
     protected String city;
 
     public Store(JSONObject object) throws JSONException {
-        this.name = object.getString("Store_Name");
-        this.address = object.getString("Address");
-        this.phoneNumber = object.getString("Phone_Number");
-        String[] citystate = object.getString("City_and_State").split(",");
-        this.city = citystate[0];
+        this.name = object.getString("name");
+        this.address = object.getString("street_address");
+        this.phoneNumber = object.getString("phone_number_1");
+        this.city = object.getString("city");
     }
 
     public Store()

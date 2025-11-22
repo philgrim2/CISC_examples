@@ -22,7 +22,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    protected static final String url = "https://setify-server.herokuapp.com/walmart_store_location";
+    protected static final String url = "https://nua.insufficient-light.com/data/walmart_store_locations.json";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
                                 for (int i = 0; i < response.length(); i++) {
                                     try {
                                         JSONObject obj = response.getJSONObject(i);
-                                        String citystate = obj.getString("City_and_State");
-                                        if (citystate.endsWith("PA"))
+                                        String state = obj.getString("state");
+                                        if (state.endsWith("PA"))
                                         {
                                             Store store = new Store(response.getJSONObject(i));
                                                 Fragment fragment = new StoreFragment(store);

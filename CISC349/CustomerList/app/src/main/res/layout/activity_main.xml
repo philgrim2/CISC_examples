@@ -7,24 +7,30 @@
     tools:context=".MainActivity"
     android:layout_marginTop="20sp"
     android:columnCount="1"
-    android:rowCount="5">
-
-    <ListView
-        android:id="@+id/listView"
+    android:rowCount="6">
+    <ScrollView
+        android:id="@+id/listScroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_row="0"
         android:layout_column="0"
         android:layout_rowSpan="4"
-        />
+        android:layout_gravity = "top|center"
+        android:fillViewport="true">
 
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        />
+    </ScrollView>
     <Button
         android:id="@+id/add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="bottom|center_horizontal"
         android:text="Add Customer"
-        android:layout_row="4"
+        android:layout_row="5"
         android:layout_column="0"/>
 
 </GridLayout>

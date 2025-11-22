@@ -79,7 +79,7 @@ class PeriodicTable:
             formula = stdio.readString()
             if formula.lower() in ['quit','exit','stop']:
                 running = False
-                
+                break
             try:    
                 weight = self._parse(formula)
                 stdio.writef("Molecular weight: %.6f\n", weight)
@@ -117,7 +117,7 @@ class PeriodicTable:
             else:
                 raise ValueError(f'Invalid input {symbol}')
             i += 1
-        weight += cur
+            weight += cur
         return weight
     
 def _test():
