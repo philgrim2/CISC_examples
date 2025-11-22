@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    protected static final String url = "https://setify-server.herokuapp.com/holiday_songs_spotify";
+    protected static final String url = "https://nua.insufficient-light.com/data/holiday_songs_spotify.json";
     protected ListView list;
 
     @Override
