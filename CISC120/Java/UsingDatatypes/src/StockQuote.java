@@ -36,7 +36,11 @@ public class StockQuote {
 
     // Given symbol, get HTML
     private static String readHTML(String symbol) {
+<<<<<<< HEAD
+        In page = new In("http://finance.yahoo.com/quote/" + symbol + "/");
+=======
         In page = new In("http://finance.yahoo.com/quote/" + symbol);
+>>>>>>> 1585123c6752fb5917cf8b3ae224f82ed1843596
         String html = page.readAll();
         if (html.contains("<title></title>")) return null;
         else return html;
@@ -87,7 +91,10 @@ public class StockQuote {
     public static void main(String[] args) {
         String symbol = args[0];
         String html = readHTML(symbol);
+<<<<<<< HEAD
+=======
         StdOut.println(html);
+>>>>>>> 1585123c6752fb5917cf8b3ae224f82ed1843596
         if (html == null) StdOut.println("Invalid symbol: " + symbol);
         else {
             StdOut.println(priceOf(symbol, html));

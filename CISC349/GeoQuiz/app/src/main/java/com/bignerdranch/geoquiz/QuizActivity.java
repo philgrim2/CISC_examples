@@ -36,7 +36,7 @@ public class QuizActivity extends AppCompatActivity {
     private int totalCount;
     private int score;
 
-    private Question[] mQuestionBank = new Question[] {
+    private static final Question[] mQuestionBank = new Question[] {
             new Question(R.string.question_australia, true),
             new Question(R.string.question_oceans, true),
             new Question(R.string.question_mideast, false),
