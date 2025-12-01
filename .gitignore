@@ -28,3 +28,5 @@ hs_err_pid*
 __pycache__/
 
 .ipynb_checkpoints/
+.idea
+.vscode
