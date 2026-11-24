@@ -1,0 +1,21 @@
+% start S
+S[SEM=(?np + WHERE + ?vp)] -> NP[SEM=?np] VP[SEM=?vp]
+VP[SEM=(?v + ?np + ?ap)] -> IV[SEM=?v] NP[SEM=?np] AP[SEM=?ap]
+VP[SEM=(?v + ?pp)] -> IV[SEM=?v] PP[SEM=?pp]
+VP[SEM=(?v + ?ap)] -> IV[SEM=?v] AP[SEM=?ap]
+NP[SEM=(?det + ?n)] -> Det[SEM=?det] N[SEM=?n]
+PP[SEM=(?p + ?np)] -> P[SEM=?p] NP[SEM=?np]
+AP[SEM=(?a+?pp)] -> A[SEM=?a] PP[SEM=?pp]
+NP[SEM='Country="greece"'] -> 'Greece'
+NP[SEM='Country="china"'] -> 'China'
+NP[SEM='2000'] -> '2000'
+Det[SEM='SELECT'] -> 'Which' | 'What'
+DET[SEM=''] -> 'a'
+N[SEM='City FROM city_table'] -> 'cities'
+N[SEM='population'] -> 'population'
+IV[SEM=''] -> 'are' | 'have'
+A[SEM=''] -> 'located'
+A[SEM='>'] -> 'greater'
+P[SEM=''] -> 'in' | 'than'
+
+

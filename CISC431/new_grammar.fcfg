@@ -1,0 +1,43 @@
+% start S
+# ###################
+# Grammar Productions
+# ###################
+# S expansion productions
+S -> NP[NUM=?n] VP[NUM=?n]
+
+# NP expansion productions
+NP[NUM=?n] -> N[NUM=?n] 
+NP[NUM=?n] -> Det[NUM=?n] N[NUM=?n]
+NP[NUM=pl] -> N[NUM=pl] 
+NP[NUM=pl] -> N[NUM=sg] CC N[NUM=sg]
+NP[NUM=pl] -> NP[NUM=pl] CC N[NUM=sg]
+N[NUM=?n] -> PropN[NUM=?n] 
+# VP expansion productions
+VP[TENSE=?t, NUM=?n] -> V[SUBCAT=intrans, TENSE=?t, NUM=?n]
+VP[TENSE=?t, NUM=?n] -> V[SUBCAT=trans, TENSE=?t, NUM=?n] NP
+VP[TENSE=?t, NUM=?n] -> V[SUBCAT=clause, TENSE=?t, NUM=?n] SBar
+SBar -> Comp S
+CC -> CC CC
+# ###################
+# Lexical Productions
+# ###################
+Det[NUM=sg] -> 'this' | 'every'
+Det[NUM=pl] -> 'these' | 'all'
+Det -> 'the' | 'some' | 'several'
+CC -> 'and' | ','
+Comp -> 'that'
+PropN[NUM=sg]-> 'Kim' | 'Jody' | 'Alice' | 'You'
+N[NUM=sg] -> 'dog' | 'girl' | 'car' | 'child'
+N[NUM=pl] -> 'dogs' | 'girls' | 'cars' | 'children' 
+
+V[SUBCAT=intrans, TENSE=pres, NUM=sg] -> 'disappears' | 'walks'
+V[SUBCAT=trans, TENSE=pres, NUM=sg] -> 'sees' | 'likes'
+V[SUBCAT=clause, TENSE=pres, NUM=sg] -> 'says' | 'claims'
+
+V[SUBCAT=intrans, TENSE=pres, NUM=pl] -> 'disappear' | 'walk'
+V[SUBCAT=trans, TENSE=pres, NUM=pl] -> 'see' | 'like'
+V[SUBCAT=clause, TENSE=pres, NUM=pl] -> 'say' | 'claim'
+
+V[SUBCAT=intrans, TENSE=past, NUM=?n] -> 'disappeared' | 'walked'
+V[SUBCAT=trans, TENSE=past, NUM=?n] -> 'saw' | 'liked'
+V[SUBCAT=clause, TENSE=past, NUM=?n] -> 'said' | 'claimed'
