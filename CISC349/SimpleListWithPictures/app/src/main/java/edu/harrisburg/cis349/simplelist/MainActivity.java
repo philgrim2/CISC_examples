@@ -37,13 +37,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         ArrayList<User> arrayOfUsers = new ArrayList<>();
-        arrayOfUsers.add(new User("Eve", "777-777-7777", "https://static.toiimg.com/photo/msid-67586673/67586673.jpg"));
-        arrayOfUsers.add(new User("John", "777-777-7777", "https://static.toiimg.com/photo/msid-67586673/67586673.jpg"));
-        arrayOfUsers.add(new User("Mark", "777-777-7777", "https://static.toiimg.com/photo/msid-67586673/67586673.jpg"));
-        arrayOfUsers.add(new User("Michael", "777-777-7777", "https://static.toiimg.com/photo/msid-67586673/67586673.jpg"));
-        arrayOfUsers.add(new User("Adam", "777-777-7777", "https://static.toiimg.com/photo/msid-67586673/67586673.jpg"));
-        arrayOfUsers.add(new User("Mary", "777-777-7777", "https://static.toiimg.com/photo/msid-67586673/67586673.jpg"));
-        arrayOfUsers.add(new User("Olivia", "777-777-7777", "https://static.toiimg.com/photo/msid-67586673/67586673.jpg"));
+        arrayOfUsers.add(new User("Eve", "717-777-7771", "https://miro.medium.com/v2/resize:fit:1080/0*A7MUqyCLvZDcHkfM.jpg"));
+        arrayOfUsers.add(new User("John", "717-777-6772", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQJpzpPcx17rcSzBs86omCUcyaCGd7qWMZclRYpkcQPRDA1a1mU"));
+        arrayOfUsers.add(new User("Mark", "717-777-5773", "https://static.toiimg.com/photo/msid-67586673/67586673.jpg"));
+        arrayOfUsers.add(new User("Michael", "717-777-4774", "https://static.toiimg.com/photo/msid-67586673/67586673.jpg"));
+        arrayOfUsers.add(new User("Adam", "717-777-3775", "https://static.toiimg.com/photo/msid-67586673/67586673.jpg"));
+        arrayOfUsers.add(new User("Mary", "717-777-2776", "https://static.toiimg.com/photo/msid-67586673/67586673.jpg"));
+        arrayOfUsers.add(new User("Olivia", "717-777-1777", "https://static.toiimg.com/photo/msid-67586673/67586673.jpg"));
 
 
         // Create the adapter to convert the array to views

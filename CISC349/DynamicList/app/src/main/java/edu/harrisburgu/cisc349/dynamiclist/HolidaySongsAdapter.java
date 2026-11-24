@@ -103,7 +103,7 @@ public class HolidaySongsAdapter extends BaseAdapter implements AdapterView.OnIt
         tv.setText(album.getArtist());
 
         NetworkImageView image = (NetworkImageView) view.findViewById(R.id.albumDisplayImageView);
-        image.setImageUrl(album.getImage(), imageLoader);
+        image.setImageUrl(album.getPlaylistImage(), imageLoader);
     }
 
     @Override
