@@ -1,9 +1,0 @@
-com\inlt\example\asteroids\Asteroids.class
-com\inlt\example\asteroids\Shot.class
-com\inlt\example\asteroids\Vector2D.class
-com\inlt\example\asteroids\GamePanel.class
-com\inlt\example\asteroids\Asteroid.class
-com\inlt\example\asteroids\Ufo.class
-com\inlt\example\asteroids\VectorObject.class
-com\inlt\example\asteroids\GameKeyListener.class
-com\inlt\example\asteroids\Ship.class
