@@ -1,0 +1,17 @@
+/target/
+.classpath
+.project
+.idea
+/.settings
+/Choozees.log
+
+### VS Code ###
+.vscode/
+
+### Maven Wrapper ###
+/mvnw
+/mvnw.cmd
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+.mvn/wrapper
+.mvn
