@@ -12,6 +12,9 @@ public class HolidaySongs {
     private int durationMs;
     private String playlistImage;
 
+
+
+
     public HolidaySongs(JSONObject jsonData) throws JSONException {
         this.setImage(jsonData.getString("album_img"));
         this.setName(jsonData.getString("album_name"));

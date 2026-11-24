@@ -21,7 +21,11 @@ public class Fade {
         return new Color(r, g, b);
     }
 
+<<<<<<< HEAD
+    public static void main(String[] args) {
+=======
     public static void main(String[] args) throws InterruptedException {
+>>>>>>> 1585123c6752fb5917cf8b3ae224f82ed1843596
         int n = Integer.parseInt(args[0]);         // # of frames
         Picture picture1 = new Picture(args[1]);   // begin picture
         Picture picture2 = new Picture(args[2]);   // end picture
@@ -46,7 +50,10 @@ public class Fade {
                 }
             }
             picture.show();
+<<<<<<< HEAD
+=======
             Thread.sleep(20);
+>>>>>>> 1585123c6752fb5917cf8b3ae224f82ed1843596
         }
     }
 }
